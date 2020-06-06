@@ -2,3 +2,4 @@
 .idea
 data
 *.h5
+*.pt
