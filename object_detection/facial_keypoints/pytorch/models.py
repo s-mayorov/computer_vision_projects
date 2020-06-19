@@ -28,7 +28,7 @@ class Net(nn.Module):
         self.bn7 = nn.BatchNorm1d(1024)
         self.fc3 = nn.Linear(1024, 136)
         
-        self.drop = nn.Dropout(p=0.6)
+        self.drop = nn.Dropout(p=0.4)
         
     def forward(self, x):
         x = self.pool(F.relu(self.bn1(self.conv1(x))))

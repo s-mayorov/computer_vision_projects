@@ -20,7 +20,7 @@ test_dataset = FacialKeypointsDataset(csv_file='data/test_frames_keypoints.csv',
                                              root_dir='data/test/',
                                              transform=data_transform)
 
-batch_size = 16
+batch_size = 32
 
 train_loader = DataLoader(transformed_dataset, 
                           batch_size=batch_size,
@@ -48,7 +48,8 @@ else:
 def train_net(n_epochs):
     net.train()
     for epoch in range(n_epochs):  # loop over the dataset multiple times
-        running_loss = 0.0
+        train_loss = 0.0
+        test_loss = 0.0
         for batch_i, data in enumerate(train_loader):
             images = data['image']
             key_pts = data['keypoints']
@@ -64,13 +65,25 @@ def train_net(n_epochs):
             loss.backward()
             optimizer.step()
 
-            running_loss += loss.item()
-            if batch_i % 10 == 9:    # print every 10 batches
-                print('Epoch: {}, Batch: {}, Avg. Loss: {}'.format(epoch + 1, batch_i+1, running_loss/1000))
-                running_loss = 0.0
+            train_loss += loss.item()
+
+        with torch.no_grad():
+            for data in test_loader:
+                images = data["image"]
+                key_pts = data["keypoints"]
+                key_pts = key_pts.view(key_pts.size(0), -1)
+                key_pts = key_pts.type(dtype)
+                images = images.type(dtype)
+                output_pts = net(images)
+                loss = criterion(output_pts, key_pts)
+                test_loss += loss.item()
+            print('Epoch: {}, trainloss: {}, testloss {}'.format(
+                epoch + 1,  
+                train_loss/len(train_loader), 
+                test_loss/len(test_loader)))
 
     print('Finished Training')
 
-train_net(12)
+train_net(42)
 
 torch.save(net.state_dict(), "v2_model.pt")
