@@ -22,6 +22,13 @@ All links below lead to jupyter notebooks
 - [Pytorch on FashionMNIST](image_classification/fashion_mnist_pytorch/model_and_training.ipynb)
 - [fast.ai on simpsons dataset](image_classification/fastai_resnet_simpsons/fastai_resnet.ipynb)
 
+### GANs with pytorch
+
+Exercises from Andrew Ng course [Build Basic Generative Adversarial Networks (GANs)](https://www.coursera.org/learn/build-basic-generative-adversarial-networks-gans)
+
+[MNIST Digit Generator with Wasserstein loss](gans/digits_generation/c1w3_wgan.ipynb)
+
+
 
 ## RNN
 
