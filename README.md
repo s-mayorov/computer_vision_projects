@@ -21,6 +21,7 @@ All links below lead to jupyter notebooks
 
 - [Pytorch on FashionMNIST](image_classification/fashion_mnist_pytorch/model_and_training.ipynb)
 - [fast.ai on simpsons dataset](image_classification/fastai_resnet_simpsons/fastai_resnet.ipynb)
+- [Stepic course Нейронные сети и компьютерное зрение by Samsung Research Russia Open Education](https://stepik.org/course/50352/promo) | [Exercises](image_classification/stepic/)
 
 ### GANs with pytorch
 
