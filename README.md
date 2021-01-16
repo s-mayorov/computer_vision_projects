@@ -9,7 +9,8 @@ All links below lead to jupyter notebooks
 
 ### CNN with Keras
 
-- [As always, start with MNIST](image_classification/mnist_keras/mnist.ipynb)
+- [As always, start with MNIST, without frameworks](image_classification/mnist_without_frameworks.py)
+- [MNIST with Keras](image_classification/mnist_keras/mnist.ipynb)
 - [Data augmentation on cat/dog dataset](image_classification/cat_dog_aug_keras/cat_dog_aug.ipynb)
 - [Using keras callbacks on fruits dataset](image_classification/fruit_classifier/fruit.ipynb)
 - [AlexNet on cifar10](image_classification/cifar10_alexnet_keras/cifar10.ipynb)
